@@ -1,0 +1,29 @@
+﻿@using SignalR_Demo.Models
+@model Article
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index</h1>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "Article" }))
+{
+    <div class="row">
+        <div class="col-6">
+            Article Heading
+        </div>
+        <div class="col-6">
+            <input type="text" id="articleHeading" name="articleHeading" />
+            @Html.TextBoxFor(model => Model.articleHeading, new { @maxlength = "50" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            Article Content
+        </div>
+        <div class="col-6">
+            @Html.TextBoxFor(model => Model.articleContent, new { @maxlength = "100" })
+        </div>
+    </div>
+    <div>
+        <button type="submit" id="Add" value="Add" />
+    </div>
+}
